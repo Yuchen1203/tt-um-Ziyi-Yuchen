@@ -18,7 +18,6 @@ async def test_pwm_with_reset_and_timing(dut):
     cocotb.start_soon(clock.start())
 
     # Reset the device
-    dut.ena.value = 1
     dut.rst_n.value = 0
     await ClockCycles(dut.clk, 5)  # Hold reset for 5 cycles
     dut.rst_n.value = 1
@@ -37,7 +36,7 @@ async def test_pwm_with_reset_and_timing(dut):
     high_count = 0
     for _ in range(10):
         await RisingEdge(dut.clk)
-        if dut.uio_out[0].value:
+        if dut.uo_out[0].value:
             high_count += 1
 
     # Check if the high count matches the expected new duty cycle
