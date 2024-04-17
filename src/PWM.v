@@ -21,8 +21,8 @@ module tt_um_Ziyi_Yuchen
  reg[3:0] DUTY_CYCLE=5; // initial duty cycle is 50%
   // Debouncing 2 buttons for inc/dec duty cycle 
   // Firstly generate slow clock enable for debouncing flip-flop (4Hz)
- assign uo_out = ui_in + uio_in;
- assign uio_out = {7'b0, PWM_OUT};
+ assign uo_out = {7'b0, PWM_OUT};
+ assign uio_out = 8'b0;
  assign uio_oe = 8'b0;
  always @(posedge clk)
  begin
