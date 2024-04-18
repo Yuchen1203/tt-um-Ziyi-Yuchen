@@ -23,11 +23,11 @@ async def test_pwm_with_reset_and_timing(dut):
     await ClockCycles(dut.clk, 1)
 
     for i in range(10):
-        c0 = 0
+        a = 0
         await ClockCycles(dut.clk, 1)
         if(dut.uo_out[0].value == 1):
-            c0++
-    print(c)
+            a = a + 1
+    print(a)
         
 
     dut.ui_in[0].value = 1
