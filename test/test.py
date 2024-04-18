@@ -15,6 +15,9 @@ async def test_pwm_with_reset_and_timing(dut):
     clock = Clock(dut.clk, 10, units="us")
     cocotb.start_soon(clock.start())
 
+    dut.rst_n.value = 0
+    await ClockCycles(dut.clk, 10)
+    dut.rst_n.value = 1
     print(dut.clk)
     
     for i in range(100):
