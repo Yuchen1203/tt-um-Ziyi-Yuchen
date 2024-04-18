@@ -56,7 +56,7 @@ module tt_um_Ziyi_Yuchen
 	    	begin
             		DUTY_CYCLE <= 4'b0101;
 	    		counter_PWM <= 4'b0000;
-			PWM_out <= 1;
+			PWM_OUT <= 1;
 	    	end
 	  else
 		begin
@@ -64,7 +64,7 @@ module tt_um_Ziyi_Yuchen
    			if(counter_PWM>=9) 
    		 		counter_PWM <= 0;
 			
-	 		PWM_out <= counter_PWM < DUTY_CYCLE ? 1:0;
+	 		PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
 	    		if(duty_inc==1 && DUTY_CYCLE < 9) 
    		 		DUTY_CYCLE <= DUTY_CYCLE + 1;// increase duty cycle by 10%
    	    		else if(duty_dec==1 && DUTY_CYCLE>1) 
@@ -86,4 +86,4 @@ begin
 end 
 
 
-endmodule 
+endmodule
