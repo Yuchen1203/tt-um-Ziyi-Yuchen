@@ -15,4 +15,8 @@ async def test_pwm_with_reset_and_timing(dut):
     clock = Clock(dut.clk, 10, units="us")
     cocotb.start_soon(clock.start())
 
-    print(dut.DUTY_CYCLE.value)
+    print(dut.clk)
+    
+    for i in range(100):
+        await ClockCycles(dut.clk, 10)
+        print(dut.DUTY_CYCLE.value)
