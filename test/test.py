@@ -12,7 +12,7 @@ from cocotb.binary import BinaryValue
 async def test_pwm_with_reset_and_timing(dut):
     dut._log.info("Start")
 
-    clock = Clock(dut.clk, 10, units="us")
+    clock = Clock(dut.clk, 10, units="ns")
     cocotb.start_soon(clock.start())
 
     dut.rst_n.value = 0
