@@ -26,7 +26,7 @@ async def test_pwm_with_reset_and_timing(dut):
     assert dut.uo_out[1].value == 0
     dut.rst_n.value = 1
     
-  '''
+'''
     await ClockCycles(dut.clk, 1)
 
     a = 0
@@ -69,10 +69,10 @@ async def test_pwm_with_reset_and_timing(dut):
     
 
 
-    '''
+'''
     for i in range(20):
         print(dut.uo_out[0].value)
         await ClockCycles(dut.clk, 1)
-    '''
+'''
             
             
