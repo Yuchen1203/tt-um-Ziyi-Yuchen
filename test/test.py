@@ -17,7 +17,7 @@ async def test_pwm_with_reset_and_timing(dut):
 
     dut._log.info("PWM")
     dut.ena.value = 1
-
+    dut.uo_out.value = 0
     dut.ui_in.value = 0b0
     dut.uio_in.value = 0
     dut.rst_n.value = 0
