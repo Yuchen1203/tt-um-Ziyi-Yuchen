@@ -65,11 +65,12 @@ wire duty_inc,duty_dec;
    			if(counter_PWM>=9) 
    		 		counter_PWM <= 0;
 			
-	 		PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
+	 		
 	    		if(duty_inc==1 && DUTY_CYCLE < 9) 
    		 		DUTY_CYCLE <= DUTY_CYCLE + 1;// increase duty cycle by 10%
    	    		else if(duty_dec==1 && DUTY_CYCLE>1) 
     		 		DUTY_CYCLE <= DUTY_CYCLE - 1;//decrease duty cycle by 10%
+			PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
  	  	end
  end 
 // Create 10MHz PWM signal with variable duty cycle controlled by 2 buttons 
