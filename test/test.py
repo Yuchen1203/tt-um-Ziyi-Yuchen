@@ -17,7 +17,6 @@ async def test_pwm_with_reset_and_timing(dut):
 
     dut._log.info("PWM")
     dut.ena.value = 1
-    dut.uo_out.value = 0
     dut.ui_in.value = 0b0
     dut.uio_in.value = 0
     dut.rst_n.value = 0
@@ -31,7 +30,7 @@ async def test_pwm_with_reset_and_timing(dut):
         await ClockCycles(dut.clk, 1)
         if(dut.uo_out[0].value == 1):
             a = a + 1
-    print(a)
+    assert a == 5
         
 
     dut.ui_in[0].value = 1
@@ -41,7 +40,7 @@ async def test_pwm_with_reset_and_timing(dut):
         await ClockCycles(dut.clk, 1)
         if(dut.uo_out[0].value == 1):
             b = b + 1
-    print(b)
+    assert b == 6
 
     await ClockCycles(dut.clk, 10)
 
@@ -58,7 +57,7 @@ async def test_pwm_with_reset_and_timing(dut):
         await ClockCycles(dut.clk, 1)
         if(dut.uo_out[0].value == 1):
             c = c + 1
-    print(c)
+    assert c == 4
         
 
 
