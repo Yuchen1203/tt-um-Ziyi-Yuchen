@@ -38,13 +38,13 @@ module tt_um_Ziyi_Yuchen
  assign slow_clk_enable = counter_debounce == 1 ?1:0;
  // for running simulation -- comment when running on FPGA
  // debouncing FFs for increasing button
- DFF_PWM PWM_DFF1(clk,slow_clk_enable,increase_duty,tmp1);
- DFF_PWM PWM_DFF2(clk,slow_clk_enable,tmp1, tmp2); 
- assign duty_inc =  tmp1 & (~ tmp2) & slow_clk_enable;
+ //DFF_PWM PWM_DFF1(clk,slow_clk_enable,increase_duty,tmp1);
+ //DFF_PWM PWM_DFF2(clk,slow_clk_enable,tmp1, tmp2); 
+// assign duty_inc =  tmp1 & (~ tmp2) & slow_clk_enable;
  // debouncing FFs for decreasing button
- DFF_PWM PWM_DFF3(clk,slow_clk_enable,decrease_duty, tmp3);
- DFF_PWM PWM_DFF4(clk,slow_clk_enable,tmp3, tmp4); 
- assign duty_dec =  tmp3 & (~ tmp4) & slow_clk_enable;
+// DFF_PWM PWM_DFF3(clk,slow_clk_enable,decrease_duty, tmp3);
+// DFF_PWM PWM_DFF4(clk,slow_clk_enable,tmp3, tmp4); 
+// assign duty_dec =  tmp3 & (~ tmp4) & slow_clk_enable;
  // vary the duty cycle using the debounced buttons above
 
 	
