@@ -18,7 +18,7 @@ module tt_um_Ziyi_Yuchen
 // wire slow_clk_enable; // slow clock enable signal for debouncing FFs
 // reg[27:0] counter_debounce=0;// counter for creating slow clock enable signals 
 // wire tmp1,tmp2;// temporary flip-flop signals for debouncing the increasing button
-wire duty_inc,duty_dec;
+// wire duty_inc,duty_dec;
 // wire tmp3,tmp4;// temporary flip-flop signals for debouncing the decreasing button
  reg[3:0] counter_PWM=0;// counter for creating 10Mhz PWM signal
  reg[3:0] DUTY_CYCLE=5; // initial duty cycle is 50%
@@ -66,9 +66,9 @@ wire duty_inc,duty_dec;
    		 		counter_PWM <= 0;
 			
 	 		PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
-	    		if(duty_inc==1 && DUTY_CYCLE < 9) 
+			if(increase_duty==1 && DUTY_CYCLE < 9) 
    		 		DUTY_CYCLE <= DUTY_CYCLE + 1;// increase duty cycle by 10%
-   	    		else if(duty_dec==1 && DUTY_CYCLE>1) 
+			else if(decrease_duty==1 && DUTY_CYCLE>1) 
     		 		DUTY_CYCLE <= DUTY_CYCLE - 1;//decrease duty cycle by 10%
 			
  	  	end
