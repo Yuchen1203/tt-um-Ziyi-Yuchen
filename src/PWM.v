@@ -53,21 +53,23 @@ module tt_um_Ziyi_Yuchen
  always @(posedge clk)
  begin
 	 if (!rst_n)
-	    begin
-            DUTY_CYCLE <= 4'b0101;
-	    counter_PWM <= 4'b0000;
-	    end
+	    	begin
+            		DUTY_CYCLE <= 4'b0101;
+	    		counter_PWM <= 4'b0000;
+			PWM_OUT <= 1;
+	    	end
 	  else
 		begin
-   		counter_PWM <= counter_PWM + 1;
-   		if(counter_PWM>=9) 
-   		 counter_PWM <= 0;
- 	  end
- 	PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
-   if(duty_inc==1 && DUTY_CYCLE < 9) 
-    DUTY_CYCLE <= DUTY_CYCLE + 1;// increase duty cycle by 10%
-   else if(duty_dec==1 && DUTY_CYCLE>1) 
-    DUTY_CYCLE <= DUTY_CYCLE - 1;//decrease duty cycle by 10%
+   			counter_PWM <= counter_PWM + 1;
+   			if(counter_PWM>=9) 
+   		 		counter_PWM <= 0;
+			
+	 		PWM_OUT <= counter_PWM < DUTY_CYCLE ? 1:0;
+	    		if(duty_inc==1 && DUTY_CYCLE < 9) 
+   		 		DUTY_CYCLE <= DUTY_CYCLE + 1;// increase duty cycle by 10%
+   	    		else if(duty_dec==1 && DUTY_CYCLE>1) 
+    		 		DUTY_CYCLE <= DUTY_CYCLE - 1;//decrease duty cycle by 10%
+ 	  	end
  end 
 // Create 10MHz PWM signal with variable duty cycle controlled by 2 buttons 
 
