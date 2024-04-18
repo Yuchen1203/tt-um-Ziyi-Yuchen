@@ -25,6 +25,7 @@ async def test_pwm_with_reset_and_timing(dut):
 
     # Simulate the PWM period: wait for 100ns (10 clock cycles)
     await ClockCycles(dut.clk, 10)
+    dut.rst_n.value = 0
 
     # Press 'increase duty' button exactly at the start of a new PWM period
     dut.ui_in.value = 0b00000001  # Set increase_duty bit
