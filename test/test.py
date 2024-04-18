@@ -14,7 +14,8 @@ async def test_pwm_with_reset_and_timing(dut):
 
     clock = Clock(dut.clk, 10, units="ns")
     cocotb.start_soon(clock.start())
-    
+
+    dut.uo_out[0].value = 1
     dut.ui_in[1].value = 0
     dut.ui_in[0].value = 0
     dut.rst_n.value = 0
