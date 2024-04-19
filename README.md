@@ -11,8 +11,6 @@ PWM controllers are fundamental building blocks in digital systems. It is crucia
 ## How it works
 
 The PWM generates a 10 MHz PWM signal whose duty cycle can be adjusted using two buttons.
-Uses a slow clock enable signal and a series of D flip-flops to stabilize the button inputs. 
-The debounced signals then control the increase or decrease of the PWM duty cycle.
 The PWM duty cycle can be increased or decreased in steps, constrained between 10% and 90%.
 
 ## How to test
