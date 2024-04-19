@@ -62,17 +62,5 @@ async def test_pwm_with_reset_and_timing(dut):
             c = c + 1
     assert c == 4
 
-        
 
-
-
-    
-
-
-    '''
-    for i in range(20):
-        print(dut.uo_out[0].value)
-        await ClockCycles(dut.clk, 1)
-    '''
-            
             
